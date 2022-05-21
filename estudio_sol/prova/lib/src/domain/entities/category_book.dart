@@ -1,0 +1,1 @@
+enum CategoryBook { romance, adventure, comedy, horror, technology, travel }
