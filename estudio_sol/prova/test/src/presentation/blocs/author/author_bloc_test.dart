@@ -33,4 +33,17 @@ void main(){
       isA<LoadedAuthorState>(),
     ],
   );
+
+  blocTest<AuthorBloc, AuthorState>(
+    'get favorite authors with error',
+    build: (){
+      when(() => favoriteAuthors.call()).thenAnswer((invocation) => Stream.error(Exception()));
+      return bloc;
+    },
+    act: (bloc) => bloc.add(FavoriteAuthorsEvent()),
+    expect: () => [
+      isA<LoadingAuthorState>(),
+      isA<ExceptionAuthorState>(),
+    ],
+  );
 }
