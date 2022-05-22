@@ -1,7 +1,5 @@
 import 'package:equatable/equatable.dart';
 
-//enum CategoryBook { romance, adventure, comedy, horror, technology, travel }
-
 class CategoryBookEntity extends Equatable{
   String name;
 
