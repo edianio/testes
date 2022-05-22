@@ -9,7 +9,7 @@ class BookEntity extends Equatable{
   String cover;
   String description;
   bool isFavorite;
-  CategoryBook category;
+  CategoryBookEntity category;
 
   BookEntity(
       {required this.id,

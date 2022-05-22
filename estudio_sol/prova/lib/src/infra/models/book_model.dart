@@ -19,7 +19,7 @@ class BookModel extends BookEntity{
           cover: map['cover'] as String,
           description: map['description'] as String,
           isFavorite: map['isFavorite'] as bool,
-          category: map['category'] as CategoryBook);
+          category: map['category'] as CategoryBookEntity);
 
   Map<String, dynamic> toMap() => {
     'id': id,

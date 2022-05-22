@@ -13,12 +13,14 @@ class AuthorMock extends Mock implements AuthorEntity{}
 void main(){
   late BookDatasource datasource;
   late BookEntity entity;
+  late CategoryBookEntity category;
   late AuthorEntity author;
   int id = 1;
 
   setUp((){
     datasource = DatasourceMock();
     author = AuthorMock();
+    category = CategoryBookEntity(name: 'Romance');
     entity = BookEntity(
         id: id,
         name: faker.person.name(),
@@ -26,7 +28,7 @@ void main(){
         cover: faker.internet.httpUrl(),
         description: faker.lorem.random.toString(),
         isFavorite: true,
-        category: CategoryBook.technology
+        category: category,
     );
   });
 
