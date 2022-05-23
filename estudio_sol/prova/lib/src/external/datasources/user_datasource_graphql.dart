@@ -1,8 +1,6 @@
-import 'package:prova/src/domain/entities/user_entity.dart';
 import 'package:prova/src/errors/exceptions.dart';
 import 'package:prova/src/external/graphql/service/graphql_service.dart';
 import 'package:prova/src/external/queries/user_queries.dart';
-import 'package:prova/src/infra/models/user_model.dart';
 import 'package:prova/src/infra/remote/datasource/user_datasource.dart';
 
 class UserDatasourceGraphQl implements UserDatasource{
