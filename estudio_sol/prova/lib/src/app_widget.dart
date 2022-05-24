@@ -4,6 +4,7 @@ import 'package:prova/src/modules/book_modules.dart';
 import 'package:prova/src/modules/category_book_modules.dart';
 import 'package:prova/src/modules/user_modules.dart';
 import 'package:prova/src/presentation/pages/home/home_page.dart';
+import 'package:prova/src/utils/color_table.dart';
 import 'package:provider/provider.dart';
 
 class AppWidget extends StatelessWidget {
@@ -21,9 +22,10 @@ class AppWidget extends StatelessWidget {
       child: MaterialApp(
         title: 'SS BOOK',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          fontFamily: 'Roboto',
+          scaffoldBackgroundColor: ColorTable.scaffoldBackgroundPage,
         ),
-        home: HomePage(),
+        home: const HomePage(),
       ),
     );
   }
