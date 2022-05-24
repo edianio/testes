@@ -5,5 +5,5 @@ class ColorTable{
   static const Color purple = Color.fromARGB(255, 160, 118, 242);
   static const Color blackTitle = Color.fromARGB(255, 85, 85, 85);
   static const Color blackSubTitle = Color.fromARGB(255, 117, 117, 117);
-  static const Color blackShadow = Color.fromARGB(60, 85, 85, 85);
+  static const Color blackShadow = Color.fromARGB(50, 85, 85, 85);
 }

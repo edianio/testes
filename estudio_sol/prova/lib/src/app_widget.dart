@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prova/src/modules/author_modules.dart';
 import 'package:prova/src/modules/book_modules.dart';
 import 'package:prova/src/modules/category_book_modules.dart';
+import 'package:prova/src/modules/graphql_modules.dart';
 import 'package:prova/src/modules/user_modules.dart';
 import 'package:prova/src/presentation/pages/home/home_page.dart';
 import 'package:prova/src/utils/color_table.dart';
@@ -14,6 +15,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ... graphqlModules,
         ... userModules,
         ... bookModules,
         ... authorModules,
@@ -24,6 +26,12 @@ class AppWidget extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'Roboto',
           scaffoldBackgroundColor: ColorTable.scaffoldBackgroundPage,
+          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            backgroundColor: Colors.white,
+            unselectedItemColor: ColorTable.blackSubTitle,
+            showUnselectedLabels: true,
+            selectedItemColor: ColorTable.purple,
+          ),
         ),
         home: const HomePage(),
       ),

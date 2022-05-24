@@ -1,13 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:prova/src/presentation/blocs/user/user_bloc.dart';
+import 'package:prova/src/presentation/blocs/user/user_event.dart';
+import 'package:prova/src/presentation/blocs/user/user_state.dart';
 import 'package:prova/src/utils/color_table.dart';
+import 'package:provider/provider.dart';
 
-class HeaderPage extends StatelessWidget {
+class HeaderPage extends StatefulWidget {
   const HeaderPage({Key? key}) : super(key: key);
 
   @override
+  State<HeaderPage> createState() => _HeaderPageState();
+}
+
+class _HeaderPageState extends State<HeaderPage> {
+
+  @override
+  void initState(){
+    context.read<UserBloc>().add(UserPictureEvent());
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final userBloc = context.watch<UserBloc>();
+    final userState = userBloc.state;
+
     return Container(
-      //height: 128,
       decoration: const BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -39,12 +57,17 @@ class HeaderPage extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(32),
-                    child: Image.network(
-                      'https://sscdn.co/gcs/studiosol/2022/mobile/avatar.jpg',
+                    child: userState is LoadedUserPictureState ? Image.network(
+                      userState.picture,
                       height: 32,
                       width: 32,
                       fit: BoxFit.cover,
-                    ),
+                    ) :
+                        Container(
+                          color: ColorTable.blackShadow,
+                          height: 32,
+                          width: 32,
+                        ),
                   ),
                 ),
 
