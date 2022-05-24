@@ -48,7 +48,29 @@ class _HeaderPageState extends State<HeaderPage> {
 
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 6, 20, 6),
-                  child: Image.asset('assets/images/ssbook_logo.png'),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const <Widget>[
+                      Text(
+                        'SS',
+                        style: TextStyle(
+                          fontFamily: 'Bebas Neue',
+                          fontWeight: FontWeight.w400,
+                          fontSize: 44,
+                          color: ColorTable.blackTitle
+                        ),
+                      ),
+                      Text(
+                        'BOOK',
+                        style: TextStyle(
+                          fontFamily: 'Bebas Neue',
+                          fontWeight: FontWeight.w400,
+                          fontSize: 44,
+                          color: ColorTable.purple
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
 
                 Expanded(child: Container()),

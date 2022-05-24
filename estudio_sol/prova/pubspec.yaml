@@ -103,3 +103,8 @@ flutter:
         - asset: assets/fonts/roboto/Roboto-Regular.ttf
           weight: 700
           style: normal
+    - family: Bebas Neue
+      fonts:
+        - asset: assets/fonts/bebas_neue/BebasNeue-Regular.ttf
+          weight: 400
+          style: normal
