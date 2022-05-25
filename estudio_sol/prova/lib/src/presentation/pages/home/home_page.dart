@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prova/src/presentation/pages/common/header_page.dart';
 import 'package:prova/src/presentation/pages/home/components/home_horizontal_books_list.dart';
-import 'package:prova/src/utils/color_table.dart';
+import 'package:prova/src/presentation/pages/home/components/home_white_base.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -35,28 +35,20 @@ class HomePage extends StatelessWidget {
 
         ],
       ),
-      body: ListView(
-        shrinkWrap: true,
-        primary: true,
+      body: Column(
         children: <Widget>[
-          const HeaderPage(),
+          HeaderPage(),
 
-          const HomeHorizontalBooksList(),
-
-          Container(
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: ColorTable.blackShadow,
-                  spreadRadius: 1,
-                ),
+          Expanded(
+            child: ListView(
+              primary: true,
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+              children: <Widget>[
+                HomeHorizontalBooksList(),
+                HomeWhiteBase(),
               ],
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(50),
-              ),
             ),
-            child: Container(),
           ),
 
         ],

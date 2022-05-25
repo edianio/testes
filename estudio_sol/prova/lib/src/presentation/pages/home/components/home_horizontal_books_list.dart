@@ -4,6 +4,7 @@ import 'package:prova/src/presentation/blocs/book/book_bloc.dart';
 import 'package:prova/src/presentation/blocs/book/book_event.dart';
 import 'package:prova/src/presentation/blocs/book/book_state.dart';
 import 'package:prova/src/presentation/pages/home/components/book_list_tile.dart';
+import 'package:prova/src/presentation/pages/home/components/home_section_header.dart';
 import 'package:prova/src/utils/color_table.dart';
 
 class HomeHorizontalBooksList extends StatefulWidget {
@@ -36,44 +37,18 @@ class _HomeHorizontalBooksListState extends State<HomeHorizontalBooksList> {
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
 
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 21, 20, 21),
-              child: Row(
-                children: <Widget>[
-
-                  const Text(
-                    'Livros favoritos',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: ColorTable.blackTitle,
-                      fontWeight: FontWeight.w700
-                    ),
-                  ),
-
-                  Expanded(child: Container()),
-
-                  const Text(
-                    'Ver todos',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: ColorTable.purple,
-                      fontWeight: FontWeight.w700
-                    ),
-                  ),
-
-                ],
-              ),
-            ),
+            HomeSectionHeader(title: 'Livros favoritos'),
 
             if(bookState is LoadedBooksState)
               SizedBox(
-                height: double.maxFinite,
+                height: 320,//TODO RESOLVER TAMANHO FIXO
                 width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
                   itemCount: bookState.books.length,
                   primary: false,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
+                  physics: const ClampingScrollPhysics(),
                   itemBuilder: (_, index) =>
                       BookListTile(book: bookState.books[index]),
                 ),
