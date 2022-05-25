@@ -48,28 +48,32 @@ class _HeaderPageState extends State<HeaderPage> {
 
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 6, 20, 6),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: const <Widget>[
-                      Text(
-                        'SS',
-                        style: TextStyle(
-                          fontFamily: 'Bebas Neue',
-                          fontWeight: FontWeight.w400,
-                          fontSize: 44,
-                          color: ColorTable.blackTitle
+                  child: SizedBox(
+                    height: 44,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: const <Widget>[
+                        Text(
+                          'SS',
+                          style: TextStyle(
+                            fontFamily: 'Bebas Neue',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 33,
+                            color: ColorTable.blackTitle
+                          ),
                         ),
-                      ),
-                      Text(
-                        'BOOK',
-                        style: TextStyle(
-                          fontFamily: 'Bebas Neue',
-                          fontWeight: FontWeight.w400,
-                          fontSize: 44,
-                          color: ColorTable.purple
+                        Text(
+                          'BOOK',
+                          style: TextStyle(
+                            fontFamily: 'Bebas Neue',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 33,
+                            color: ColorTable.purple
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
 
@@ -119,7 +123,7 @@ class _HeaderPageState extends State<HeaderPage> {
                         'Meus Livros',
                         style: TextStyle(
                           color: ColorTable.blackTitle,
-                          fontSize: 16.41,
+                          fontSize: 14,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -144,7 +148,7 @@ class _HeaderPageState extends State<HeaderPage> {
                         'Emprestados',
                         style: TextStyle(
                           color: ColorTable.blackTitle,
-                          fontSize: 16.41,
+                          fontSize: 14,
                           fontWeight: FontWeight.w700,
                         ),
                       ),

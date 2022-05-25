@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prova/src/presentation/pages/common/header_page.dart';
+import 'package:prova/src/presentation/pages/home/components/home_horizontal_books_list.dart';
 import 'package:prova/src/utils/color_table.dart';
 
 class HomePage extends StatelessWidget {
@@ -34,16 +35,31 @@ class HomePage extends StatelessWidget {
 
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            HeaderPage(),
-            // Expanded(
-            //   child: Container(color: Colors.red,),
-            // ),
-          ],
-        ),
+      body: ListView(
+        shrinkWrap: true,
+        primary: true,
+        children: <Widget>[
+          const HeaderPage(),
+
+          const HomeHorizontalBooksList(),
+
+          Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: ColorTable.blackShadow,
+                  spreadRadius: 1,
+                ),
+              ],
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(50),
+              ),
+            ),
+            child: Container(),
+          ),
+
+        ],
       ),
     );
   }
