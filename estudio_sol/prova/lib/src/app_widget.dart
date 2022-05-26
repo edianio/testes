@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:prova/src/domain/entities/book_entity.dart';
 import 'package:prova/src/modules/author_modules.dart';
 import 'package:prova/src/modules/book_modules.dart';
 import 'package:prova/src/modules/category_book_modules.dart';
 import 'package:prova/src/modules/graphql_modules.dart';
 import 'package:prova/src/modules/user_modules.dart';
+import 'package:prova/src/presentation/pages/book/book_detail_page.dart';
 import 'package:prova/src/presentation/pages/home/home_page.dart';
 import 'package:prova/src/utils/color_table.dart';
 import 'package:provider/provider.dart';
@@ -33,7 +35,19 @@ class AppWidget extends StatelessWidget {
             selectedItemColor: ColorTable.purple,
           ),
         ),
-        home: const HomePage(),
+        onGenerateRoute: (settings){
+          switch(settings.name){
+            case '/book':
+              return MaterialPageRoute(
+                  builder: (_) => BookDetailPage(book: settings.arguments as BookEntity)
+              );
+            case '/':
+            default:
+              return MaterialPageRoute(
+                  builder: (_) => const HomePage()
+              );
+          }
+        },
       ),
     );
   }
