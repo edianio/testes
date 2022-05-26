@@ -7,7 +7,7 @@ class GraphQlService{
     final HttpLink httpLink = HttpLink('https://us-central1-ss-devops.cloudfunctions.net/GraphQL');
     _client = GraphQLClient(
       link: httpLink,
-      cache: GraphQLCache(store: InMemoryStore()),
+      cache: GraphQLCache(store: HiveStore()),
     );
   }
 

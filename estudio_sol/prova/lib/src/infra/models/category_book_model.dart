@@ -46,7 +46,7 @@ class CategoryBookModel extends CategoryBookEntity{
       case 'TRAVEL':
         return CategoryBookModel(name: 'Viagem');
       default:
-        return CategoryBookModel(name: 'Nenhum');
+        return CategoryBookModel(name: 'Todos');
     }
   }
 }

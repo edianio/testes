@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prova/src/presentation/blocs/author/author_bloc.dart';
 import 'package:prova/src/presentation/blocs/author/author_event.dart';
 import 'package:prova/src/presentation/blocs/author/author_state.dart';
-import 'package:prova/src/presentation/pages/home/components/author_list_tile.dart';
+import 'package:prova/src/presentation/pages/home/components/author_section/author_list_tile.dart';
 import 'package:provider/provider.dart';
 
 class HomeHorizontalFavoriteAuthorsList extends StatefulWidget {
@@ -26,19 +26,20 @@ class _HomeHorizontalFavoriteAuthorsListState extends State<HomeHorizontalFavori
     final authorState = authorBloc.state;
 
     if(authorState is LoadedAuthorState){
-      return ListView.separated(
-          itemCount: authorState.authors.length,
-          padding: const EdgeInsets.fromLTRB(20, 32, 20, 20),
-          primary: false,
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          physics: const ClampingScrollPhysics(),
-          itemBuilder: (_, index) {
-            return AuthorListTile(author: authorState.authors[index]);
-          },
-          separatorBuilder: (BuildContext context, int index) {
-              return const SizedBox(width: 20,);
-          },
+      return Container(
+        height: 69,
+        margin: const EdgeInsets.fromLTRB(0, 32, 0, 20),
+        child: ListView.builder(
+            itemCount: authorState.authors.length,
+            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+            primary: false,
+            shrinkWrap: true,
+            physics: const ClampingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (_, index) {
+              return AuthorListTile(author: authorState.authors[index]);
+            },
+        ),
       );
     } else {
       return Container();

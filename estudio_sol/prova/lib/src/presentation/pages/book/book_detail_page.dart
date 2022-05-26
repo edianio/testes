@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:prova/src/domain/entities/book_entity.dart';
+import 'package:prova/src/presentation/pages/common/bottomNavBar.dart';
 import 'package:prova/src/presentation/pages/common/heart_checkbox.dart';
 import 'package:prova/src/utils/color_table.dart';
 
@@ -12,40 +13,12 @@ class BookDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        iconSize: 32,
-        onTap: (index){
-          switch(index){
-            case 1:
-              return Navigator.of(context).pop();
-            default:
-              return Navigator.of(context).pop();
-          }
-        },
-        items: const <BottomNavigationBarItem>[
-
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home,),
-            label: 'Início',
-          ),
-
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_circle,),
-            label: 'Adicionar',
-          ),
-
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search,),
-            label: 'Buscar',
-          ),
-
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite,),
-            label: 'Favoritos',
-          ),
-
-        ],
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
+      bottomNavigationBar: const BottomNavBar(),
       body: Stack(
         children: <Widget>[
           Container(

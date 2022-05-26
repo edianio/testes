@@ -12,8 +12,9 @@ class AuthorListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 69,
+      height: 72,
       width: 248,
+      margin: const EdgeInsets.fromLTRB(10, 1, 10, 1),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(radius),
@@ -25,21 +26,18 @@ class AuthorListTile extends StatelessWidget {
       child: Row(
         children: <Widget>[
 
-          Padding(
-            padding: const EdgeInsets.all(1),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(radius),
-              child: Image.network(
-                author.picture,
-                height: 67,
-                width: 63,
-                fit: BoxFit.cover,
-              ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(radius),
+            child: Image.network(
+              author.picture,
+              height: 67,
+              width: 63,
+              fit: BoxFit.cover,
             ),
           ),
 
           Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.fromLTRB(10, 1, 10, 1),
             child: Flexible(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -34,6 +34,15 @@ class AppWidget extends StatelessWidget {
             showUnselectedLabels: true,
             selectedItemColor: ColorTable.purple,
           ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              primary: ColorTable.purple,
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+            ),
+          ),
         ),
         onGenerateRoute: (settings){
           switch(settings.name){

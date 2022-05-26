@@ -3,13 +3,14 @@ import 'package:prova/src/utils/color_table.dart';
 
 class HomeSectionHeader extends StatelessWidget {
   String title;
+  String? option;
 
-  HomeSectionHeader({Key? key, required this.title}) : super(key: key);
+  HomeSectionHeader({Key? key, required this.title, this.option}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
       child: Row(
         children: <Widget>[
           Text(
@@ -23,14 +24,15 @@ class HomeSectionHeader extends StatelessWidget {
 
           Expanded(child: Container()),
 
-          const Text(
-            'ver todos',
-            style: TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 14,
-              color: ColorTable.purple,
+          if(option != null)
+            Text(
+              option!,
+              style: const TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 14,
+                color: ColorTable.purple,
+              ),
             ),
-          ),
 
         ],
       ),
