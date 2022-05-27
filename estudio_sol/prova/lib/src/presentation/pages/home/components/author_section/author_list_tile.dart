@@ -11,69 +11,71 @@ class AuthorListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 72,
       width: 248,
-      margin: const EdgeInsets.fromLTRB(10, 1, 10, 1),
-      decoration: BoxDecoration(
+      child: Card(
+        margin: const EdgeInsets.fromLTRB(10, 1, 10, 1),
         color: Colors.white,
-        borderRadius: BorderRadius.circular(radius),
-        border: Border.all(
-          color: ColorTable.blackShadow,
-          width: 1,
-        ),
-      ),
-      child: Row(
-        children: <Widget>[
-
-          ClipRRect(
-            borderRadius: BorderRadius.circular(radius),
-            child: Image.network(
-              author.picture,
-              height: 67,
-              width: 63,
-              fit: BoxFit.cover,
-            ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(radius),
+          side: const BorderSide(
+            color: ColorTable.blackShadow,
+            width: 1,
           ),
+        ),
+        child: Row(
+          children: <Widget>[
 
-          Padding(
-            padding: const EdgeInsets.fromLTRB(10, 1, 10, 1),
-            child: Flexible(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-
-                  AutoSizeText(
-                    author.name,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: ColorTable.blackTitle,
-                    ),
-                    maxLines: 2,
-                    minFontSize: 16,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-
-                  AutoSizeText(
-                    '${author.booksCount} ${author.booksCount > 1 ? 'livros' : 'livro'}',
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                        color: ColorTable.blackSubTitle,
-                    ),
-                    maxLines: 2,
-                    minFontSize: 14,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-
-                ],
+            ClipRRect(
+              borderRadius: BorderRadius.circular(radius),
+              child: Image.network(
+                author.picture,
+                height: 67,
+                width: 63,
+                fit: BoxFit.cover,
               ),
             ),
-          ),
 
-        ],
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 1, 10, 1),
+              child: Flexible(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+
+                    AutoSizeText(
+                      author.name,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: ColorTable.blackTitle,
+                      ),
+                      maxLines: 2,
+                      minFontSize: 16,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+
+                    AutoSizeText(
+                      '${author.booksCount} ${author.booksCount > 1 ? 'livros' : 'livro'}',
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                          color: ColorTable.blackSubTitle,
+                      ),
+                      maxLines: 2,
+                      minFontSize: 14,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+
+                  ],
+                ),
+              ),
+            ),
+
+          ],
+        ),
       ),
     );
   }

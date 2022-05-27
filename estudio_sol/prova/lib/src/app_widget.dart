@@ -53,7 +53,7 @@ class AppWidget extends StatelessWidget {
             case '/':
             default:
               return MaterialPageRoute(
-                  builder: (_) => const HomePage()
+                  builder: (_) => HomePage()
               );
           }
         },

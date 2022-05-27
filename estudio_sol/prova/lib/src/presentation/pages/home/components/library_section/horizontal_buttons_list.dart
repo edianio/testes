@@ -12,23 +12,28 @@ class HorizontalButtonsList extends StatelessWidget {
     return Container(
       height: 52,
       margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-      child: ListView.builder(
-        itemCount: categories.length,
-        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-        primary: false,
-        shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (_, index){
-          return Container(
-            margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-            child: Flexible(
-              child: _myButton(
-                name: categories[index].name,
-                selected: index == 0 ? true : false
-              ),
-            ),
-          );
+      child: NotificationListener<ScrollNotification>(
+        onNotification: (_){
+          return true;
         },
+        child: ListView.builder(
+          itemCount: categories.length,
+          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+          primary: false,
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (_, index){
+            return Container(
+              margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+              child: Flexible(
+                child: _myButton(
+                  name: categories[index].name,
+                  selected: index == 0 ? true : false
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
