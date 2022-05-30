@@ -25,11 +25,9 @@ class HorizontalButtonsList extends StatelessWidget {
           itemBuilder: (_, index){
             return Container(
               margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-              child: Flexible(
-                child: _myButton(
-                  name: categories[index].name,
-                  selected: index == 0 ? true : false
-                ),
+              child: _myButton(
+                name: categories[index].name,
+                selected: index == 0 ? true : false
               ),
             );
           },

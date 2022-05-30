@@ -10,65 +10,63 @@ class BookVerticalListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-        child: GestureDetector(
-          onTap: (){
-            Navigator.of(context).pushNamed('/book', arguments: book);
-          },
-          child: Row(
-            children: <Widget>[
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.network(
-                  book.cover,
-                  height: 70,
-                  width: 48,
-                  fit: BoxFit.cover,
-                ),
+    return Container(
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+      child: GestureDetector(
+        onTap: (){
+          Navigator.of(context).pushNamed('/book', arguments: book);
+        },
+        child: Row(
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.network(
+                book.cover,
+                height: 70,
+                width: 48,
+                fit: BoxFit.cover,
               ),
+            ),
 
-              const SizedBox(width: 10,),
+            const SizedBox(width: 10,),
 
-              Expanded(
-                child: ListView(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  primary: false,
-                  children: <Widget>[
-                    AutoSizeText(
-                      book.name,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: ColorTable.blackTitle,
-                      ),
-                      maxLines: 2,
-                      minFontSize: 16,
-                      overflow: TextOverflow.ellipsis,
+            Expanded(
+              child: ListView(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                primary: false,
+                children: <Widget>[
+                  AutoSizeText(
+                    book.name,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: ColorTable.blackTitle,
                     ),
+                    maxLines: 2,
+                    minFontSize: 16,
+                    overflow: TextOverflow.ellipsis,
+                  ),
 
-                    const SizedBox(height: 10,),
+                  const SizedBox(height: 10,),
 
-                    AutoSizeText(
-                      book.author.name,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        color: ColorTable.blackSubTitle,
-                      ),
-                      maxLines: 2,
-                      minFontSize: 14,
-                      overflow: TextOverflow.ellipsis,
+                  AutoSizeText(
+                    book.author.name,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      color: ColorTable.blackSubTitle,
                     ),
+                    maxLines: 2,
+                    minFontSize: 14,
+                    overflow: TextOverflow.ellipsis,
+                  ),
 
-                  ],
-                ),
+                ],
               ),
+            ),
 
-            ],
-          ),
+          ],
         ),
       ),
     );

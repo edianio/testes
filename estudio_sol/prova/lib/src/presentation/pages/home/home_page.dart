@@ -29,6 +29,32 @@ class _HomePageState extends State<HomePage> {
     CategoryBookModel.fromString('TRAVEL'),
   ];
 
+  Widget _testContainer({required Color color}) =>
+      Container(
+        width: 150,
+        height: 250,
+        color: color,
+      );
+
+  Widget _testListViewHorizontal({required int counter}) =>
+      ListView.separated(
+        itemCount: counter,
+        primary: false,
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (_, index) => _testContainer(color: Colors.orangeAccent),
+        separatorBuilder: (_, index) => const SizedBox(height: 10, width: 10,),
+      );
+
+  Widget _testListViewVertical({required int counter}) =>
+      ListView.separated(
+        itemCount: counter,
+        primary: false,
+        shrinkWrap: true,
+        itemBuilder: (_, index) => _testContainer(color: Colors.teal),
+        separatorBuilder: (_, index) => const SizedBox(height: 10, width: 10,),
+      );
+
   @override
   Widget build(BuildContext context) {
 
@@ -55,10 +81,33 @@ class _HomePageState extends State<HomePage> {
                 HomeSectionHeader(title: 'Livros favoritos', option: 'ver todos',),
                 const HomeHorizontalBooksList(),
 
+                // LayoutBuilder(
+                //   builder: (_, constraints){
+                //     print('MENOR ${constraints.smallest}');
+                //     print('MAIOR ${constraints.biggest}');
+                //     return Card(
+                //       margin: const EdgeInsets.all(0),
+                //       color: Colors.white,
+                //       child: Padding(
+                //         padding: const EdgeInsets.all(20),
+                //         child: Column(
+                //           children: <Widget>[
+                //             SizedBox(
+                //               height: 260,
+                //               child: _testListViewHorizontal(counter: 7),
+                //             ),
+                //             _testListViewVertical(counter: 4),
+                //           ],
+                //         ),
+                //       ),
+                //     );
+                //   },
+                // ),
+
                 Card(
                   color: Colors.white,
                   margin: const EdgeInsets.fromLTRB(0, 32, 0, 0),
-                  elevation: 0,
+                  elevation: 1,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(50),
@@ -67,18 +116,18 @@ class _HomePageState extends State<HomePage> {
                       bottomLeft: Radius.zero,
                     ),
                   ),
-                  child: ListView(
-                    shrinkWrap: true,
-                    primary: false,
+                  child: Padding(
                     padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
-                    children: <Widget>[
-                      HomeSectionHeader(title: 'Autores favoritos', option: 'ver todos',),
-                      const HomeHorizontalFavoriteAuthorsList(),
+                    child: Column(
+                      children: <Widget>[
+                        HomeSectionHeader(title: 'Autores favoritos', option: 'ver todos',),
+                        const HomeHorizontalFavoriteAuthorsList(),
 
-                      HomeSectionHeader(title: 'Biblioteca'),
-                      HorizontalButtonsList(categories: categories),
-                      const HomeAllBooksList(),
-                    ],
+                        HomeSectionHeader(title: 'Biblioteca'),
+                        HorizontalButtonsList(categories: categories),
+                        const HomeAllBooksList(),
+                      ],
+                    ),
                   ),
                 ),
 
