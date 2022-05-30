@@ -5,6 +5,7 @@ import 'package:prova/src/modules/book_modules.dart';
 import 'package:prova/src/modules/category_book_modules.dart';
 import 'package:prova/src/modules/graphql_modules.dart';
 import 'package:prova/src/modules/user_modules.dart';
+import 'package:prova/src/presentation/pages/base/base_page.dart';
 import 'package:prova/src/presentation/pages/book/book_detail_page.dart';
 import 'package:prova/src/presentation/pages/home/home_page.dart';
 import 'package:prova/src/utils/color_table.dart';
@@ -50,10 +51,14 @@ class AppWidget extends StatelessWidget {
               return MaterialPageRoute(
                   builder: (_) => BookDetailPage(book: settings.arguments as BookEntity)
               );
+            case '/home':
+              return MaterialPageRoute(
+                  builder: (_) => HomePage()
+              );
             case '/':
             default:
               return MaterialPageRoute(
-                  builder: (_) => HomePage()
+                  builder: (_) => BasePage()
               );
           }
         },
